@@ -28,6 +28,8 @@ All Project Information is in this notion link --> [notion](https://www.notion.s
 
 Trello Board Link --> [trello](https://trello.com/invite/b/81kTWqoe/ATTIb70b2cd35740589b86085a90a96a05f993E23837/ecommerce-webapp-mern-stack)
 
+Database Schema Link --> [db schema](https://lucid.app/documents/view/41dc8682-dbec-40de-8576-ce771a96559a)
+
 ---
 
 ## Project Workflow:
@@ -52,13 +54,26 @@ Trello Board Link --> [trello](https://trello.com/invite/b/81kTWqoe/ATTIb70b2cd3
 
 ## How to create new branch
 
-1. git checkout dev # switch to dev branch
-2. git pull # pull the latest changes from dev branch
-3. git checkout -b feature/feature-name # create a new branch from dev branch
-4. git push -u origin feature/feature-name # push the new branch to remote
+```bash
+git checkout dev # switch to dev branch
+git pull # pull the latest changes from dev branch
+git checkout -b feature/feature-name # create a new branch from dev branch
+git push --set-upstream origin feature/feature-name # push the new branch to remote
+```
+
+## How to delete a branch
+
+```bash
+git checkout dev # switch to dev branch
+git pull # pull the latest changes from dev branch
+git branch -d feature/feature-name # delete the local branch
+git fetch --prune # delete the remote branch
+git branch -a # list all branches
+```
 
 ## Project Commit Message:
 
+```
 1. Commit message should be in the following format:
 2. type: subject
 3. type: feat, fix, docs, style, refactor, test, chore
@@ -74,11 +89,12 @@ Trello Board Link --> [trello](https://trello.com/invite/b/81kTWqoe/ATTIb70b2cd3
    - refactor: refactor code
    - test: add or update tests
    - chore: update build tasks, package manager configs, etc
+```
 
 ## Project Pull Request Message:
 
-1. Pull request message should be in the following format:
-   example:
+Pull request message should be in the following format:
+example:
 
 ```
 # Pull Request Template
