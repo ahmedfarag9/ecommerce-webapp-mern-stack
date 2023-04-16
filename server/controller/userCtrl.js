@@ -24,7 +24,7 @@ const createUser = asyncHandler(async (req, res) => {
 // Login User
 const loginUserCtrl = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
+  //console.log(email, password);
   // check if user exists or not
   const findUser = await User.findOne({ email: email });
   if (findUser) {
@@ -100,7 +100,7 @@ const handleRefreshToken = asyncHandler(async (req, res) => {
     throw new Error("No refresh token in Cookies, Please Login or Register");
   }
   const refreshToken = cookie.refreshtoken;
-  console.log(refreshToken);
+  //console.log(refreshToken);
   const user = await User.findOne({ refreshtoken: refreshToken });
   if (!user) {
     throw new Error("No user found, Please Login or Register");
