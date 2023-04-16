@@ -15,7 +15,7 @@ const authMiddleware = asyncHandler(async (req, res, next) => {
       token = req.headers.authorization.split(" ")[1];
       // Verify the token using the JWT_SECRET
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decoded);
+      // console.log(decoded);
       // Find the user by the decoded id and assign it to req.user
       req.user = await User.findById(decoded?.id);
       // Call the next middleware
@@ -37,7 +37,7 @@ const authMiddleware = asyncHandler(async (req, res, next) => {
 // Middleware to check if user is an admin
 const isAdmin = asyncHandler(async (req, res, next) => {
   // Get the email of the user from req.user
-  console.log(req.user);
+  // console.log(req.user);
   const { email } = req.user;
   // Find the user by the email
   const adminUser = await User.findOne({ email: email });
