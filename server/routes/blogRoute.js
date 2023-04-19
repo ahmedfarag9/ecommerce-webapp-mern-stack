@@ -9,10 +9,20 @@ const {
   deleteBlog,
   likeBlog,
   disLikeBlog,
+  uploadImages,
 } = require("../controller/blogCtrl");
 const { authMiddleware, isAdmin } = require("../middlewares/authMiddleware");
+const { blogImgResize, uploadPhoto } = require("../middlewares/uploadImages");
 
 router.post("/", authMiddleware, isAdmin, createBlog);
+router.put(
+  "/upload/:id",
+  authMiddleware,
+  isAdmin,
+  uploadPhoto.array("images", 2),
+  blogImgResize,
+  uploadImages
+);
 router.put("/likes", authMiddleware, isAdmin, likeBlog);
 router.put("/dislikes", authMiddleware, isAdmin, disLikeBlog);
 router.put("/:id", authMiddleware, isAdmin, updateBlog);
