@@ -24,6 +24,7 @@ const createProduct = asyncHandler(async (req, res) => {
 // update a product
 const updateProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
+  validateMongoDbId(id);
   try {
     if (!req.body.title) {
       res.body.slug = slugify(req.body.title);
@@ -40,6 +41,7 @@ const updateProduct = asyncHandler(async (req, res) => {
 // Delete a product
 const deleteProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
+  validateMongoDbId(id);
   try {
     const deletedProduct = await product.findByIdAndDelete(id);
     res.json(deletedProduct);
@@ -51,6 +53,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // Get product
 const getProduct = asyncHandler(async (req, res) => {
   const { id } = req.params;
+  validateMongoDbId(id);
   try {
     const getProduct = await product.findById(id);
     res.json(getProduct);
@@ -109,6 +112,8 @@ const getAllProducts = asyncHandler(async (req, res) => {
 const addToWishlist = asyncHandler(async (req, res) => {
   const { _id } = req.user;
   const { prodId } = req.body;
+  validateMongoDbId(_id);
+  validateMongoDbId(prodId);
   try {
     const user = await User.findById(_id);
     const alreadyInWishlist = user.wishlist.find(
@@ -142,6 +147,7 @@ const addToWishlist = asyncHandler(async (req, res) => {
 const rating = asyncHandler(async (req, res) => {
   const { _id } = req.user;
   const { star, prodId, comment } = req.body;
+  validateMongoDbId(_id);
   try {
     const product = await Product.findById(prodId);
     let alreadyRated = product.ratings.find(
