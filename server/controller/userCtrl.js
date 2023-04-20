@@ -98,6 +98,25 @@ const loginAdmin = asyncHandler(async (req, res) => {
   }
 });
 
+// Save user address
+const saveAddress = asyncHandler(async (req, res, next) => {
+  const { _id } = req.user;
+  const { address } = req.body;
+  validateMongoDbId(_id);
+  try {
+    const saveAddress = await User.findByIdAndUpdate(
+      _id,
+      {
+        address: address,
+      },
+      { new: true }
+    );
+    res.json(saveAddress);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 // Get all users
 const getallUser = asyncHandler(async (req, res) => {
   try {
@@ -294,6 +313,7 @@ const resetPassword = asyncHandler(async (req, res) => {
 // Get wishlist
 const getWishlist = asyncHandler(async (req, res) => {
   const { _id } = req.user;
+  validateMongoDbId(id);
   try {
     const findUser = await User.findById(_id).populate("wishlist");
     res.json(findUser);
@@ -318,4 +338,5 @@ module.exports = {
   resetPassword,
   loginAdmin,
   getWishlist,
+  saveAddress,
 };
