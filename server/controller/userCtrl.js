@@ -58,6 +58,46 @@ const loginUserCtrl = asyncHandler(async (req, res) => {
   }
 });
 
+// Admin login
+const loginAdmin = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+  //console.log(email, password);
+  // check if user exists or not
+  const findAdmin = await User.findOne({ email: email });
+  if (findAdmin.role !== "admin") {
+    throw new Error("You are not an admin");
+  }
+  if (findAdmin) {
+    // check if password is correct or not
+    const isPasswordMatched = await findAdmin.isPasswordMatch(password);
+    if (isPasswordMatched) {
+      // generate token
+      const refreshToken = await generateRefreshToken(findAdmin?._id);
+      const updateuser = await User.findByIdAndUpdate(
+        findAdmin?.id,
+        {
+          refreshtoken: refreshToken,
+        },
+        { new: true }
+      );
+      res.cookie("refreshtoken", refreshToken, {
+        httpOnly: true,
+        maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
+      });
+      res.json({
+        _id: findAdmin?._id,
+        firstname: findAdmin.firstname,
+        lastname: findAdmin.lastname,
+        email: findAdmin.email,
+        mobile: findAdmin.mobile,
+        token: generateToken(findAdmin._id),
+      });
+    } else {
+      throw new Error("Invalid Password");
+    }
+  }
+});
+
 // Get all users
 const getallUser = asyncHandler(async (req, res) => {
   try {
@@ -251,6 +291,17 @@ const resetPassword = asyncHandler(async (req, res) => {
   }
 });
 
+// Get wishlist
+const getWishlist = asyncHandler(async (req, res) => {
+  const { _id } = req.user;
+  try {
+    const findUser = await User.findById(_id).populate("wishlist");
+    res.json(findUser);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 module.exports = {
   createUser,
   loginUserCtrl,
@@ -265,4 +316,6 @@ module.exports = {
   updatePassword,
   forgotPasswordToken,
   resetPassword,
+  loginAdmin,
+  getWishlist,
 };
