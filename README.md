@@ -26,6 +26,8 @@ To be determined
 
 All Project Information is in this notion link --> [notion](https://www.notion.so/ahmed-farag/E-Commerce-Website-Mern-stack-da3c9e4dc31d48459815432d92e533f6?pvs=4)
 
+Slack Link --> [slack](https://egyfreelance.slack.com/)
+
 Trello Board Link --> [trello](https://trello.com/invite/b/81kTWqoe/ATTIb70b2cd35740589b86085a90a96a05f993E23837/ecommerce-webapp-mern-stack)
 
 Database Schema Link --> [db schema](https://lucid.app/documents/view/41dc8682-dbec-40de-8576-ce771a96559a)
