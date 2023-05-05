@@ -1,8 +1,10 @@
-const mongoose = require("mongoose"); // Erase if already required
+// Import Mongoose library for MongoDB and create a new Schema.
+const mongoose = require("mongoose");
 
-// Declare the Schema of the Mongo model
+// Define the schema for the blog category model.
 var blogCategorySchema = new mongoose.Schema(
   {
+    // Title is required, unique, and indexed for faster searches.
     title: {
       type: String,
       required: true,
@@ -10,8 +12,9 @@ var blogCategorySchema = new mongoose.Schema(
       index: true,
     },
   },
+  // Add timestamps to the schema to track when categories are created or updated.
   { timestamps: true }
 );
 
-//Export the model
+// Export the blog category model as "blogCategory" using the defined schema.
 module.exports = mongoose.model("blogCategory", blogCategorySchema);
