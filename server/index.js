@@ -1,4 +1,4 @@
-// Require Express, Database Connect, Dotenv, Auth Router, Product Router, Body Parser, Error Handler, Cookie Parser and Morgan
+// Require all necessary modules, including Express, database connect, dotenv, routers, middlewares, and logging tool
 const express = require("express");
 const dbConnect = require("./config/dbConnect");
 const dotenv = require("dotenv").config();
@@ -16,35 +16,35 @@ const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 
-// Initialize Express App
+// Initialize the Express app
 const app = express();
 
-// Set Port and Connect to Database
+// Set the port to listen on and connect to the database
 const PORT = process.env.PORT || 4000;
 dbConnect();
 
-// Use Middlewares
-app.use(morgan("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// Use middlewares
+app.use(morgan("dev")); // Log every request to the console using the dev format for Morgan
+app.use(bodyParser.json()); // Parse incoming JSON requests
+app.use(bodyParser.urlencoded({ extended: false })); // Support parsing of x-www-form-urlencoded data
+app.use(cookieParser()); // Parse cookies attached to incoming client requests
 
-// Use Routers
-app.use("/api/user", authRouter);
-app.use("/api/product", productRouter);
-app.use("/api/blog", blogRouter);
-app.use("/api/product-category", productCategoryRouter);
-app.use("/api/blog-category", blogCategoryRouter);
-app.use("/api/brand", brandRouter);
-app.use("/api/coupon", couponRouter);
-app.use("/api/color", colorRouter);
-app.use("/api/enquiry", enqRouter);
+// Use routers
+app.use("/api/user", authRouter); // Route for user authentication and registration
+app.use("/api/product", productRouter); // Route for accessing and modifying product data
+app.use("/api/blog", blogRouter); // Route for accessing and modifying blog post data
+app.use("/api/product-category", productCategoryRouter); // Route for accessing and modifying product category data
+app.use("/api/blog-category", blogCategoryRouter); // Route for accessing and modifying blog post category data
+app.use("/api/brand", brandRouter); // Route for accessing and modifying brand data
+app.use("/api/coupon", couponRouter); // Route for accessing and modifying coupon data
+app.use("/api/color", colorRouter); // Route for accessing and modifying color data
+app.use("/api/enquiry", enqRouter); // Route for handling customer enquiries
 
-// Use Error Handlers
-app.use(notFound);
-app.use(errorHandler);
+// Use error handlers
+app.use(notFound); // Handle 404 errors and forward them to the error handler
+app.use(errorHandler); // Error handler for all other types of errors
 
-// Listen on Port
+// Start listening on the specified port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
