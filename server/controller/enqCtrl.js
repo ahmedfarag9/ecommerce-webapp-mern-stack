@@ -1,8 +1,11 @@
+// Require the Enquiry model and express-async-handler module
 const Enquiry = require("../models/enqModel");
 const asyncHandler = require("express-async-handler");
 const validateMongoDbId = require("../utils/validateMongodbId");
 
 // Create a new Enquiry
+// This function creates a new enquiry using the Enquiry model
+// It takes in the request body as an argument and returns a 201 status code with a success message and the enquiry object
 const createEnquiry = asyncHandler(async (req, res) => {
   try {
     const enquiry = await Enquiry.create(req.body);
@@ -16,7 +19,9 @@ const createEnquiry = asyncHandler(async (req, res) => {
   }
 });
 
-// Update a Enquiry
+// Update an Enquiry
+// This function updates an existing enquiry using the Enquiry model
+// It takes in the request params and request body as arguments and returns a 200 status code with a success message and the updated enquiry object
 const updateEnquiry = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -34,7 +39,9 @@ const updateEnquiry = asyncHandler(async (req, res) => {
   }
 });
 
-// Delete a Enquiry
+// Delete an Enquiry
+// This function deletes an existing enquiry using the Enquiry model
+// It takes in the request params as an argument and returns a 200 status code with a success message and the deleted enquiry object
 const deleteEnquiry = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -50,7 +57,9 @@ const deleteEnquiry = asyncHandler(async (req, res) => {
   }
 });
 
-// Get a Enquiry
+// Get an Enquiry
+// This function fetches an existing enquiry using the Enquiry model
+// It takes in the request params as an argument and returns a 200 status code with a success message and the fetched enquiry object
 const getEnquiry = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -66,13 +75,15 @@ const getEnquiry = asyncHandler(async (req, res) => {
   }
 });
 
-// Get all enquiry
-const getAllEnquiry = asyncHandler(async (req, res) => {
+// Get all enquiries
+// This function fetches all existing enquiries using the Enquiry model
+// It returns a 200 status code with a success message and the fetched enquiry objects
+const getAllEnquiries = asyncHandler(async (req, res) => {
   try {
     const enquiry = await Enquiry.find({});
     res.status(200).json({
       success: true,
-      message: "Enquirys fetched successfully",
+      message: "Enquiries fetched successfully",
       enquiry,
     });
   } catch (error) {
@@ -80,10 +91,11 @@ const getAllEnquiry = asyncHandler(async (req, res) => {
   }
 });
 
+// Export the functions
 module.exports = {
   createEnquiry,
   updateEnquiry,
   deleteEnquiry,
   getEnquiry,
-  getAllEnquiry,
+  getAllEnquiries,
 };
