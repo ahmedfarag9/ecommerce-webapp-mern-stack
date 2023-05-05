@@ -1,8 +1,13 @@
+// Require the productCategoryModel and express-async-handler modules
 const Category = require("../models/productCategoryModel");
 const asyncHandler = require("express-async-handler");
+
+// Require the validateMongoDbId utility function
 const validateMongoDbId = require("../utils/validateMongodbId");
 
 // Create a new category
+// This function creates a new category using the title from the request body
+// If successful, it returns a 201 status code and a success message with the created category
 const createCategory = asyncHandler(async (req, res) => {
   try {
     const { title } = req.body;
@@ -18,6 +23,9 @@ const createCategory = asyncHandler(async (req, res) => {
 });
 
 // Update a category
+// This function updates a category using the id from the request params
+// It validates the MongoDB ID before updating the category
+// If successful, it returns a 200 status code and a success message with the updated category
 const updateCategory = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -36,6 +44,9 @@ const updateCategory = asyncHandler(async (req, res) => {
 });
 
 // Delete a category
+// This function deletes a category using the id from the request params
+// It validates the MongoDB ID before deleting the category
+// If successful, it returns a 200 status code and a success message with the deleted category
 const deleteCategory = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -52,6 +63,9 @@ const deleteCategory = asyncHandler(async (req, res) => {
 });
 
 // Get a category
+// This function gets a category using the id from the request params
+// It validates the MongoDB ID before getting the category
+// If successful, it returns a 200 status code and a success message with the fetched category
 const getCategory = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
@@ -68,6 +82,8 @@ const getCategory = asyncHandler(async (req, res) => {
 });
 
 // Get all categories
+// This function gets all categories
+// If successful, it returns a 200 status code and a success message with the fetched categories
 const getAllCategories = asyncHandler(async (req, res) => {
   try {
     const categories = await Category.find({});
@@ -81,6 +97,7 @@ const getAllCategories = asyncHandler(async (req, res) => {
   }
 });
 
+// Export the functions
 module.exports = {
   createCategory,
   updateCategory,
