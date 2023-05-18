@@ -29,7 +29,7 @@ const Header = () => {
           <div className="row align-itens-center">
             <div className="col-2">
               <h2>
-                <Link className="text-white">Dev Corner</Link>
+                <Link className="text-white">Ecommerce</Link>
               </h2>
             </div>
             <div className="col-5">
@@ -110,19 +110,19 @@ const Header = () => {
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="#">
                           Action
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="#">
                           Another action
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="#">
                           Something else here
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
