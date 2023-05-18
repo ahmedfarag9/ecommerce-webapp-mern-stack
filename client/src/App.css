@@ -9,10 +9,28 @@
   --color-3b4149: #3b4149;
   --color-febd69: #febd69;
   --color-232f3e: #232f3e;
+  --color-bf4800: #bf4800;
+  --color-f5f5f7: #f5f5f7;
+  --color-ededed: #ededed;
+  --color-777777: #777777;
+  --color-1c1c1b: #1c1c1b;
+}
+
+.section-heading {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 500;
+  margin-bottom: 30px;
 }
 
 body {
   font-family: "Rubik", sans-serif;
+}
+
+.card-wrapper {
+  background-color: white;
+  box-shadow: 0 0 10px #0000001a;
+  padding: 15px;
 }
 
 a {
@@ -25,6 +43,10 @@ a {
   border-color: inherit;
 }
 
+.gap-5 {
+  gap: 5px;
+}
+
 .gap-10 {
   gap: 10px;
 }
@@ -35,6 +57,19 @@ a {
 
 .gap-30 {
   gap: 30px;
+}
+
+.button {
+  background-color: var(--color-232f3e);
+  color: white;
+  font-size: 14px;
+  padding: 13px 33px;
+  border-radius: 25px;
+}
+
+.button:hover {
+  background-color: var(--color-febd69);
+  color: var(--color-131921);
 }
 
 /* Header Start */
@@ -78,4 +113,315 @@ a {
 .header-bottom dropdown button:focus {
   box-shadow: none;
 }
+
+.header-bottom .dropdown-menu {
+  background-color: var(--color-131921);
+  width: 100%;
+  transform: translate3d(0px, 57px, 0px) !important;
+}
+
+.header-bottom .dropdown-item {
+  padding: 20px;
+  margin-bottom: 3px;
+  border-bottom: 1px solid var(--color-3b4149);
+}
+
+.header-bottom .dropdown-item:hover {
+  background-color: transparent;
+  color: var(--color-febd69) !important;
+}
 /* Header End*/
+
+/* Footer Start */
+
+footer {
+  background-color: var(--color-232f3e);
+}
+
+footer:not(:first-child) {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .input-group-text {
+  background-color: var(--color-232f3e);
+  color: white;
+  padding: 8px 17px;
+}
+
+/* Footer End */
+
+/* Home Page Start */
+
+/* ---- Home Wrapper 1 Start ----- */
+.main-banner-content {
+  top: 15%;
+  left: 5%;
+}
+
+.main-banner-content h4 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-bf4800);
+  margin: 0 0 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.main-banner-content h5 {
+  font-size: 42px;
+  line-height: 54px;
+  letter-spacing: -2px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.main-banner-content p {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.4px;
+  color: --color-131921;
+}
+
+.small-banner-content {
+  top: 25%;
+  left: 10%;
+}
+
+.small-banner-content h4 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-bf4800);
+  margin: 0 0 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.small-banner-content h5 {
+  font-size: 22px;
+  line-height: 34px;
+  letter-spacing: -2px;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.small-banner-content p {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.4px;
+  color: --color-131921;
+}
+
+.small-banner {
+  width: 49%;
+}
+
+/* ----- Home Wrapper 1 End ----- */
+
+/* ---- Home Wrapper 2 Start ----- */
+
+.home-wrapper-2 {
+  background-color: var(--color-f5f5f7);
+}
+
+/* ----- Home Wrapper 2 End ----- */
+
+/* ----- Categories section start ----- */
+
+.categories {
+  background-color: white;
+  box-shadow: 0 0 10px #0000001a;
+  padding: 15px;
+}
+
+.categories > div {
+  width: 25%;
+  padding: 10px 10px 10px 20px;
+}
+
+.categories>div>div {
+  width: 60%;
+}
+
+.categories > div:nth-child(1),
+.categories > div:nth-child(2),
+.categories > div:nth-child(3),
+.categories > div:nth-child(4) {
+  border-bottom: 1px solid var(--color-ededed)
+}
+
+.categories > div:nth-child(1),
+.categories > div:nth-child(2),
+.categories > div:nth-child(3) {
+  border-right: 1px solid var(--color-ededed)
+}
+
+.categories > div:nth-child(5),
+.categories > div:nth-child(6),
+.categories > div:nth-child(7) {
+  border-right: 1px solid var(--color-ededed)
+}
+
+/* ----- Categories section end ----- */
+
+/* Home Page End */
+
+
+/* Blog Part start */
+
+.blog-card {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.blog-card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.blog-content {
+  padding: 15px;
+}
+
+.blog-content.date {
+  font-size: 13px;
+  line-height: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: var(--color-777777);
+  padding: 0;
+}
+
+.blog-content h5 {
+  font-size: 18px;
+  color: var(--color-131921);
+}
+
+.blog-content p.desc{
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--color-777777);
+}
+
+/* Blog Part end */
+
+/* Product Part start */
+
+.product-card {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-card .product-image {
+  height: 270px;
+}
+
+.product-card .product-image img {
+  object-fit: contain;
+}
+
+.product-card .product-image>img:last-child {
+  display: none;
+}
+
+.product-card:hover .product-image>img:nth-child(1) {
+  display: none;
+}
+
+.product-card:hover .product-image>img:last-child {
+  display: block;
+}
+
+.product-card:hover .action-bar {
+  right: 15px;
+}
+
+.product-card .product-details h6 {
+  color: var(--color-bf4800);
+  font-size: 13px;
+}
+
+.product-card .product-details h5 {
+  color: var(--color-131921);
+  font-size: 15px;
+}
+
+.product-card .product-details p.price {
+  color: var(--color-1c1c1b);
+  font-size: 16px;
+}
+
+.action-bar {
+  top: 10%;
+  right: -23px;
+  transition: 0.3s;
+}
+
+.wishlist-icon {
+  top: 2%;
+  right: 15px;
+}
+/* Product Part end */
+
+
+/* Special Product Part start */
+
+.special-product-card {
+  padding: 20px 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Special Product Part end */
+
+
+/* Famous Card start */
+
+.famous-card {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  height: 440px;
+  /* height: 400px; */
+}
+
+.famous-card .famous-content {
+  top: 10%;
+  left: 5%;
+}
+
+.famous-card img {
+  border-radius: 15px;
+}
+
+.card-black {
+  background-color: black;
+}
+
+.famous-content h5 {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 400px;
+  color: white;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+.famous-content h6 {
+  font-size: 24px;
+  line-height: 38px;
+  font-weight: 500;
+  color: white;
+}
+.famous-content p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 100;
+  color: white;
+}
+
+/* Famous Card end */
