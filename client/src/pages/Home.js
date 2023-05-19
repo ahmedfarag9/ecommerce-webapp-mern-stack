@@ -218,14 +218,14 @@ const Home = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-3">
-              <div className="card card-black famous-content famous-card">
+              <div className="card color-black famous-content famous-card">
                 <div className="card-body">
                   <h5>BIG SCREEN</h5>
                   <h6>Smart Watch Series 7</h6>
                   <p>From $399 or $ 16.62/mo. for 2 mo.*</p>
                 </div>
                 <img
-                  src="images/famous-5.webp"
+                  src="images/famous-1.webp"
                   className="card-img-top"
                   alt="famous"
                 />
