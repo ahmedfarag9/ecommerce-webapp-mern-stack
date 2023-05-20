@@ -131,7 +131,7 @@ const Header = () => {
                   <div className="d-flex align-items-center gap-15">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/store">Our Store</NavLink>
-                    <NavLink to="/">Blogs</NavLink>
+                    <NavLink to="/blogs">Blogs</NavLink>
                     <NavLink to="/contact">Contact</NavLink>
                   </div>
                 </div>
@@ -145,5 +145,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// (888) 4344 6000 - (888) 1338 8193
