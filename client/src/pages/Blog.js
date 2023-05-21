@@ -6,7 +6,7 @@ import BlogCard from "../components/BlogCard";
 const Blog = () => {
   return (
     <>
-      <Meta title="Blogs" />
+      <Meta title={"Blogs"} />
       <BreadCrumb title="Blogs" />
       <div className="blog-wrapper home-wrapper-2 py-5">
         <div className="container-xxl">
