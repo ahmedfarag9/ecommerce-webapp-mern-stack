@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Forgotpassword from "./pages/Forgotpassword";
 import Signup from "./pages/Signup";
 import Resetpassword from "./pages/Resetpassword";
+import SingleBlog from "./pages/SingleBlog";
 
 function App() {
   return (
@@ -25,12 +26,13 @@ function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="store" element={<OurStore />} />
             <Route path="blogs" element={<Blog />} />
+            <Route path="blog/:id" element={<SingleBlog />} />
             <Route path="compare-product" element={<CompareProduct />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="login" element={<Login />} />
             <Route path="forgot-password" element={<Forgotpassword />} />
-            <Route path="signup" element={<Signup/>} />
-            <Route path="reset-password" element={<Resetpassword/>} />
+            <Route path="signup" element={<Signup />} />
+            <Route path="reset-password" element={<Resetpassword />} />
           </Route>
         </Routes>
       </BrowserRouter>
