@@ -629,3 +629,67 @@ footer .input-group-text {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 /* Compare Product Page end */
+
+/* Login Page Start */
+
+/* ----Auth card start---- */
+
+.auth-card {
+  padding: 20px;
+  background-color: white;
+  width: 500px;
+  margin: 30px auto;
+}
+
+/* ----Auth card end---- */
+
+/* Login Page End */
+
+/* Register Page Start */
+
+/* ----Auth card start---- */
+
+.auth-card {
+  padding: 20px;
+  background-color: white;
+  width: 500px;
+  margin: 30px auto;
+  border-radius: 10px;
+}
+
+.auth-card h3 {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--color-777777);
+}
+
+.auth-card p {
+  font-size: 13px;
+  color: var(--color-777777);
+}
+
+.auth-card .form-control {
+  height: 50px;
+  background-color: var(--color-f5f5f7);
+  color: var(--color-777777);
+  font-size: 14px;
+  border-radius: 10px;
+  border-color: transparent;
+}
+
+.auth-card a {
+  color: var(--color-1c1c1b);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.auth-card .sign-up {
+  background-color: var(--color-febd69);
+  color: var(--color-131921);
+}
+
+.auth-card .sign-up:hover {
+  background-color: var(--color-131921);
+  color: var(--color-febd69);
+}
+/* ----Auth card end---- */
