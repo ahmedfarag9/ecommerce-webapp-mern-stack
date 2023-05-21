@@ -710,3 +710,12 @@ footer .input-group-text {
   color: var(--color-febd69);
 }
 /* ----Auth card end---- */
+
+/* Policy Page Start */
+
+.policy {
+  padding: 30px;
+  background-color: white;
+}
+
+/* Policy Page End */
