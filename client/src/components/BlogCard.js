@@ -16,7 +16,7 @@ const BlogCard = () => {
           hic debitis, amet impedit cum suscipit ipsam voluptatem error
           voluptas!
         </p>
-        <Link to="/" className="button">
+        <Link to="/blog/:id" className="button">
           Read More
         </Link>
       </div>
