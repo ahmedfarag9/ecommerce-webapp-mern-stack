@@ -23,11 +23,7 @@ const Cart = () => {
               <div className="card-data py-3 mb-2 d-flex justify-content-between align-items-center">
                 <div className="cart-col-1 gap-15 d-flex align-items-center">
                   <div className="w-25">
-                    <img
-                      src={watch}
-                      className="img-fluid"
-                      alt="product image"
-                    />
+                    <img src={watch} className="img-fluid" alt="product" />
                   </div>
                   <div className="w-75">
                     <p>GHGHGH</p>
@@ -66,7 +62,9 @@ const Cart = () => {
                 <div className="d-flex flex-column align-items-end">
                   <h4>SubTotal: $ 100</h4>
                   <p>Taxes and shipping are calculated at checkout</p>
-                  <Link to="/checkout" className="button">Checkout</Link>
+                  <Link to="/checkout" className="button">
+                    Checkout
+                  </Link>
                 </div>
               </div>
             </div>
