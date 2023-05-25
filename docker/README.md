@@ -2,4 +2,4 @@
 
 ## docker folder
 
-Contains all docker related files
+Contains all docker related files.
