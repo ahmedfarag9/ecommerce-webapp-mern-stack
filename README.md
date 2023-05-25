@@ -2,15 +2,16 @@
 
 ## About project
 
-In this project, We will build an E-commerce Web App using MERN Stack (MongoDB, Express, React, Node.js) and Redux for state management.
+In this project, We are going to build a Full E-commerce Web App using MERN Stack (MongoDB, Express, React, Node.js) and Redux for state management.
 
 The project will have the following features:
    - Dockerized using docker-compose.
    - Kubernetes ready.
    - Implemented with CICD (Continuous Integration & Continuous Deployment) using Github Actions.
-   - Deployed using AWS EKS (Elastic Kubernetes Service) & AWS ECR (Elastic Container Registry).
+   - Deployment option 1: Deployed on AWS EC2 (Elastic Compute Cloud) along with nginx, using docker-swarm for orchestration.
+   - Deployment option 2 Deployed on AWS EKS (Elastic Kubernetes Service) & using AWS ECR (Elastic Container Registry).
    - Organized using Slack, Trello and Notion.
-   - Implemented using DevOps best practices and guidelines.
+   - Implemented using DevOps best practices and Agile methodology.
 ---
 
 ## Project Structure
@@ -26,7 +27,7 @@ The project will have the following features:
 
 ## Project Setup Steps
 
-   - Will be added later
+   - Will be added soon
 ---
 
 ## Project Documentation
@@ -122,3 +123,9 @@ Please delete options that are not relevant.
 - [] This change requires a new dependency in package.json
 
 ```
+
+## References:
+
+https://www.youtube.com/@developerscorner/about
+
+https://www.youtube.com/@SanjeevThiyagarajan/about
