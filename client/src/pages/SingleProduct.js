@@ -17,7 +17,8 @@ const SingleProduct = () => {
     zoomWidth: 600,
     img: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
   };
-  const [orderedProduct, setOrderedProduct] = React.useState(true);
+  // const [orderedProduct, setOrderedProduct] = React.useState(true);
+  const [orderedProduct] = React.useState(true);
   const copyToClipboard = (text) => {
     console.log("text", text);
     var textField = document.createElement("textarea");
@@ -160,12 +161,12 @@ const SingleProduct = () => {
                 </div>
                 <div className="d-flex align-items-center gap-15">
                   <div>
-                    <a href="">
+                    <a href="#main-product-details">
                       <TbGitCompare className="fs-5 mb-2" /> Add to Compare
                     </a>
                   </div>
                   <div>
-                    <a href="">
+                    <a href="#main-product-details">
                       <AiOutlineHeart className="fs-5 mb-2" />
                       Add to Wishlist
                     </a>
@@ -182,7 +183,7 @@ const SingleProduct = () => {
                 <div className="d-flex gap-10 align-items-center my-3">
                   <h3 className="product-heading">Product Link :</h3>
                   <a
-                    href="javascript:void(0);"
+                    href="#main-product-details"
                     onClick={() => {
                       copyToClipboard(
                         "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg"
@@ -234,7 +235,10 @@ const SingleProduct = () => {
                 {/* Refactor href prop */}
                 {orderedProduct && (
                   <div>
-                    <a className="text-dark text-decoration-underline" href="">
+                    <a
+                      className="text-dark text-decoration-underline"
+                      href="#review"
+                    >
                       Write a Review
                     </a>
                   </div>
