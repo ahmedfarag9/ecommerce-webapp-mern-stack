@@ -802,14 +802,6 @@ footer .input-group-text {
   width: 48%;
 }
 
-/* .main-product-image .js-image-zoom__zoomed-image {
-  left: 50px !important;
-  padding: 10px;
-  background-color: white;
-  border-radius: 10px;
-  z-index: 1000;
-} */
-
 .main-product-image .js-image-zoom__zoomed-image {
   left: 50px !important;
   padding: 10px;

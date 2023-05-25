@@ -5,7 +5,7 @@ import prodcompare from "../images/prodcompare.svg";
 import wish from "../images/wish.svg";
 // import wishlist from "../images/wishlist.svg";
 import watch from "../images/watch.jpg";
-import watch2 from "../images/watch-1.jpg";
+import watch2 from "../images/watch-1.webp";
 import view from "../images/view.svg";
 import addcart from "../images/add-cart.svg";
 
