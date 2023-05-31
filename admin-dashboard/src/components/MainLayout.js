@@ -167,7 +167,9 @@ const MainLayout = () => {
           <div className="d-flex gap-3 align-items-center">
             <div className="position-relative">
               <IoIosNotifications className="fs-4" />
-              <span className="badge bg-warning rounded-circle p-1 position-absolute">3</span>
+              <span className="badge bg-warning rounded-circle p-1 position-absolute">
+                3
+              </span>
             </div>
             <div className="d-flex gap-4 align-items-center">
               <div>
