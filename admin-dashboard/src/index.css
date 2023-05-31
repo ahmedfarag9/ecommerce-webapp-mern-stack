@@ -57,7 +57,13 @@ body {
 }
 
 main {
+  height: 85vh;
   overflow-y: scroll;
+  background-color: transparent !important;
+}
+
+main::-webkit-scrollbar {
+  width: 0px;
 }
 
 .ant-menu-title-content {
@@ -80,5 +86,13 @@ main {
 }
 
 .ant-layout-header {
-  background-color: rgb(231, 219, 219);
+  background-color: white;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
