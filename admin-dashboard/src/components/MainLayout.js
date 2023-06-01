@@ -8,7 +8,7 @@ import {
   AiOutlinePicLeft,
   AiOutlinePicRight,
 } from "react-icons/ai";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { SiBrandfolder } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
 import { BiCategoryAlt } from "react-icons/bi";
@@ -65,7 +65,7 @@ const MainLayout = () => {
                   label: "Add Product",
                 },
                 {
-                  key: "product-list",
+                  key: "list-product",
                   icon: <AiOutlineShoppingCart className="fs-4" />,
                   label: "Product List",
                 },
@@ -107,7 +107,7 @@ const MainLayout = () => {
               label: "Orders",
             },
             {
-              key: "blog",
+              key: "blogs",
               icon: <FaBloggerB className="fs-4" />,
               label: "Blogs",
               children: [
@@ -171,13 +171,36 @@ const MainLayout = () => {
                 3
               </span>
             </div>
-            <div className="d-flex gap-4 align-items-center">
+            {/* TODO Refactor dropdown menu - not working  */}
+            <div className="d-flex gap-3 align-items-center dropdown">
               <div>
                 <img width={40} height={40} src="images/admin-pic.jpg" alt="" />
               </div>
-              <div>
+              <div
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 <h5 className="mb-0">Admin</h5>
                 <p className="mb-0">admin@gmail.com</p>
+              </div>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a className="dropdown-item" href="#logo">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#logo">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#logo">
+                    Something else here
+                  </a>
+                </li>
               </div>
             </div>
           </div>
