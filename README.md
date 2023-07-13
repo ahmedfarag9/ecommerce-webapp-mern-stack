@@ -34,6 +34,10 @@ Database Schema Link --> [db schema](https://lucid.app/documents/view/41dc8682-d
 
    - Will be added soon
 
+---
+
+## Live Demo -- > [https://e-commerce-app-test.netlify.app/](https://e-commerce-app-test.netlify.app/)
+
 
 <!---
 
