@@ -438,7 +438,7 @@ const resetPassword = asyncHandler(async (req, res) => {
 // Get wishlist
 const getWishlist = asyncHandler(async (req, res) => {
   // Log the user from the request
-  console.log(req.user);
+  // console.log(req.user);
   // Get the user id from the request user
   const { _id } = req.user;
   // Validate the MongoDB Id
@@ -460,10 +460,6 @@ const getWishlist = asyncHandler(async (req, res) => {
 
 // ADD to User Cart
 const userCart = asyncHandler(async (req, res) => {
-  // Log the request body
-  console.log(req.body);
-  // Log the user id from the request user
-  console.log(req.user._id);
   // Get the cart from the request body
   const { cart } = req.body;
   // Get the user id from the request user
@@ -505,16 +501,12 @@ const userCart = asyncHandler(async (req, res) => {
     for (let i = 0; i < products.length; i++) {
       cartTotal = cartTotal + products[i].price * products[i].count;
     }
-    // Log the cart total
-    console.log("cartTotal", cartTotal);
     // Create a new cart with the products, total and user id
     let newCart = await new Cart({
       products,
       cartTotal,
       orderedBy: user._id,
     }).save();
-    // Log the new cart
-    console.log("new cart ----> ", newCart);
     // Return a success response
     res.status(200).json({
       status: "success",
@@ -714,6 +706,7 @@ const getOrders = asyncHandler(async (req, res) => {
     // Find the orders associated with the user and populate the product details
     const UserOrders = await Order.findOne({ orderedBy: _id })
       .populate("products.product")
+      .populate("orderedBy")
       .exec();
 
     // Return the response with the orders details
@@ -721,6 +714,26 @@ const getOrders = asyncHandler(async (req, res) => {
       status: "success",
       message: "User orders fetched successfully",
       UserOrders,
+    });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
+// Get all orders
+const getAllOrders = asyncHandler(async (req, res) => {
+  try {
+    // Find all the orders and populate the product details
+    const orders = await Order.find()
+      .populate("products.product")
+      .populate("orderedBy")
+      .exec();
+
+    // Return the response with the orders details
+    res.status(200).json({
+      status: "success",
+      message: "All orders fetched successfully",
+      orders,
     });
   } catch (error) {
     throw new Error(error);
@@ -781,4 +794,5 @@ module.exports = {
   createOrder,
   getOrders,
   updateOrderStatus,
+  getAllOrders,
 };
