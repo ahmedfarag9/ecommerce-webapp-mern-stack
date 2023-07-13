@@ -15,6 +15,7 @@ const bodyParser = require("body-parser");
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
+const cors = require("cors");
 
 // Initialize the Express app
 const app = express();
@@ -25,6 +26,7 @@ dbConnect();
 
 // Use middlewares
 app.use(morgan("dev")); // Log every request to the console using the dev format for Morgan
+app.use(cors()); // Allow cross origin resource sharing
 app.use(bodyParser.json()); // Parse incoming JSON requests
 app.use(bodyParser.urlencoded({ extended: false })); // Support parsing of x-www-form-urlencoded data
 app.use(cookieParser()); // Parse cookies attached to incoming client requests

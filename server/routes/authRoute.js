@@ -24,6 +24,7 @@ const {
   createOrder,
   getOrders,
   updateOrderStatus,
+  getAllOrders,
 } = require("../controller/userCtrl");
 
 // Import the authMiddleware and isAdmin middleware functions
@@ -57,6 +58,7 @@ router.post("/cart/cash-order", authMiddleware, createOrder);
 // Define routes for retrieving user data
 router.get("/all-users", getallUsers);
 router.get("/get-orders", authMiddleware, getOrders);
+router.get("/get-all-orders", authMiddleware, isAdmin, getAllOrders);
 router.get("/refresh", handleRefreshToken);
 router.get("/logout", logout);
 router.get("/wishlist", authMiddleware, getWishlist);
