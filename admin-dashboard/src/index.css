@@ -88,3 +88,8 @@ main::-webkit-scrollbar {
 .ant-layout-header {
   background-color: white;
 }
+
+.error {
+  color: red;
+  font-size: 12px;
+}
