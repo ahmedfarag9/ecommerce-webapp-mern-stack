@@ -2,14 +2,13 @@
 
 ## About project
 
-In this project, We are going to build a Full E-commerce Web App using MERN Stack (MongoDB, Express, React, Node.js) and Redux for state management.
+This is  a Full E-commerce Web App using MERN Stack (MongoDB, Express, React, Node.js) and Redux for state management.
 
-The project will have the following features:
+The project has the following features:
    - Dockerized using docker-compose.
    - Kubernetes ready.
    - Implemented with CICD (Continuous Integration & Continuous Deployment) using Github Actions.
-   - Deployment option 1: Deployed on AWS EC2 (Elastic Compute Cloud) along with nginx, using docker-swarm for orchestration.
-   - Deployment option 2 Deployed on AWS EKS (Elastic Kubernetes Service) & using AWS ECR (Elastic Container Registry).
+   - Deployed on AWS EKS (Elastic Kubernetes Service) using AWS ECR (Elastic Container Registry).
    - Organized using Slack, Trello and Notion.
    - Implemented using DevOps best practices and Agile methodology.
 ---
@@ -19,15 +18,10 @@ The project will have the following features:
 1. Client
 2. Server
 3. Admin dashboard 
-4. Chatgpt-bot
-5. Docker and Kubernetes files
-6. CICD files
+4. Docker and Kubernetes files
+5. CICD files
 
----
 
-## Project Setup Steps
-
-   - Will be added soon
 ---
 
 ## Project Documentation
@@ -35,6 +29,13 @@ The project will have the following features:
 Database Schema Link --> [db schema](https://lucid.app/documents/view/41dc8682-dbec-40de-8576-ce771a96559a)
 
 ---
+
+## Installation Steps
+
+   - Will be added soon
+
+
+<!---
 
 ## Project Workflow:
 
@@ -129,3 +130,5 @@ Please delete options that are not relevant.
 https://www.youtube.com/@developerscorner/about
 
 https://www.youtube.com/@SanjeevThiyagarajan/about
+
+-->

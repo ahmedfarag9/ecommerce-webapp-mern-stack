@@ -2,31 +2,26 @@ import React, { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { InboxOutlined } from "@ant-design/icons";
-import { message, Upload } from "antd";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
-const { Dragger } = Upload;
-const props = {
-  name: "file",
-  multiple: true,
-  action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-  onChange(info) {
-    const { status } = info.file;
-    if (status !== "uploading") {
-      console.log(info.file, info.fileList);
-    }
-    if (status === "done") {
-      message.success(`${info.file.name} file uploaded successfully.`);
-    } else if (status === "error") {
-      message.error(`${info.file.name} file upload failed.`);
-    }
-  },
-  onDrop(e) {
-    console.log("Dropped files", e.dataTransfer.files);
-  },
-};
+let schema = Yup.object().shape({
+  title: Yup.string().required("Title is required"),
+  description: Yup.string().required("Description is required"),
+});
 
 const Addproduct = () => {
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+    },
+    validationSchema: schema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   const [desc, setDesc] = useState();
   const handleDesc = (e) => {
     setDesc(e);
@@ -35,16 +30,36 @@ const Addproduct = () => {
     <div>
       <h3 className="mb-4 title">Add Product</h3>
       <div>
-        <form>
-          <CustomInput type="text" label="Enter Product Title" />
-          <div className="mb-3">
+        <form
+          onSubmit={formik.handleSubmit}
+          className="d-flex gap-3 flex-column"
+        >
+          <CustomInput
+            type="text"
+            label="Enter Product Title"
+            name="title"
+            onCh={formik.handleChange("title")}
+            onBlr={formik.handleBlur("title")}
+            val={formik.values.title}
+          />
+          <div className="error">
+            {formik.touched.title && formik.errors.title ? (
+              <div>{formik.errors.title}</div>
+            ) : null}
+          </div>
+          <div>
             <ReactQuill
               theme="snow"
-              value={desc}
-              onChange={(evt) => {
-                handleDesc(evt);
-              }}
+              name="description"
+              onCh={formik.handleChange("description")}
+              onBlr={formik.handleBlur("description")}
+              value={formik.values.description}
             />
+          </div>
+          <div className="error">
+            {formik.touched.description && formik.errors.description ? (
+              <div>{formik.errors.description}</div>
+            ) : null}
           </div>
           <CustomInput type="number" label="Enter Product Price" />
           <select name="" className="form-control py-3 mb-3" id="">
@@ -57,18 +72,6 @@ const Addproduct = () => {
             <option value="">Select Color</option>
           </select>
           <CustomInput type="number" label="Enter Product Price" />
-          <Dragger {...props}>
-            <p className="ant-upload-drag-icon">
-              <InboxOutlined />
-            </p>
-            <p className="ant-upload-text">
-              Click or drag file to this area to upload
-            </p>
-            <p className="ant-upload-hint">
-              Support for a single or bulk upload. Strictly prohibited from
-              uploading company data or other banned files.
-            </p>
-          </Dragger>
           <button
             className="btn btn-success border-0 rounded-3 my-5"
             type="submit"

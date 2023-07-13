@@ -9,12 +9,12 @@ const createColor = asyncHandler(async (req, res) => {
     // Get title from request body
     const { title } = req.body;
     // Create a new color with the title
-    const brand = await Color.create({ title });
+    const color = await Color.create({ title });
     // Return response with success message and created color
     res.status(201).json({
       success: true,
       message: "Color created successfully",
-      brand,
+      color,
     });
   } catch (error) {
     throw new Error(error);
@@ -29,14 +29,14 @@ const updateColor = asyncHandler(async (req, res) => {
     // Validate the id
     validateMongoDbId(id);
     // Find and update the color with the given id
-    const brand = await Color.findByIdAndUpdate(id, req.body, {
+    const color = await Color.findByIdAndUpdate(id, req.body, {
       new: true,
     });
     // Return response with success message and updated color
     res.status(200).json({
       success: true,
       message: "Color updated successfully",
-      brand,
+      color,
     });
   } catch (error) {
     throw new Error(error);
@@ -51,12 +51,12 @@ const deleteColor = asyncHandler(async (req, res) => {
     // Validate the id
     validateMongoDbId(id);
     // Find and delete the color with the given id
-    const brand = await Color.findByIdAndDelete(id);
+    const color = await Color.findByIdAndDelete(id);
     // Return response with success message and deleted color
     res.status(200).json({
       success: true,
       message: "Color deleted successfully",
-      brand,
+      color,
     });
   } catch (error) {
     throw new Error(error);
@@ -71,28 +71,28 @@ const getColor = asyncHandler(async (req, res) => {
     // Validate the id
     validateMongoDbId(id);
     // Find the color with the given id
-    const brand = await Color.findById(id);
+    const color = await Color.findById(id);
     // Return response with success message and fetched color
     res.status(200).json({
       success: true,
       message: "Color fetched successfully",
-      brand,
+      color,
     });
   } catch (error) {
     throw new Error(error);
   }
 });
 
-// Get all brands
+// Get all colors
 const getAllColors = asyncHandler(async (req, res) => {
   try {
     // Find all colors
-    const brands = await Color.find({});
+    const colors = await Color.find({});
     // Return response with success message and fetched colors
     res.status(200).json({
       success: true,
       message: "Colors fetched successfully",
-      brands,
+      colors,
     });
   } catch (error) {
     throw new Error(error);
